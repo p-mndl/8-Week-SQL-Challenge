@@ -1,7 +1,3 @@
--- CLEANUP of nulls in extras and exclusions
-
-USE D8WC;
-
 -- UPDATING CUSTOMER ORDERS
 
 UPDATE CS2.customer_orders
@@ -54,8 +50,5 @@ SET cancellation = NULL
 WHERE
   cancellation = 'null'
   OR cancellation = '';
-
-
-SELECT * FROM CS2.pizza_recipes;
 
 
