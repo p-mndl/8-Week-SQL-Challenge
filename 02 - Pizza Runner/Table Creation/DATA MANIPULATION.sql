@@ -51,4 +51,6 @@ WHERE
   cancellation = 'null'
   OR cancellation = '';
 
+ALTER TABLE CS2.pizza_names
+ALTER COLUMN pizza_name VARCHAR(10)
 
