@@ -52,5 +52,10 @@ WHERE
   OR cancellation = '';
 
 ALTER TABLE CS2.pizza_names
-ALTER COLUMN pizza_name VARCHAR(10)
+ALTER COLUMN pizza_name VARCHAR(10);
 
+ALTER TABLE CS2.pizza_recipes
+ALTER COLUMN toppings VARCHAR(25);
+
+ALTER TABLE CS2.pizza_toppings
+ALTER COLUMN topping_name VARCHAR(15);
