@@ -56,7 +56,8 @@ INNER
 GROUP BY pt.topping_name
 ORDER BY pt.topping_name DESC;
 
--- 4. Generate an order item for each record in the customers_orders table in the format of one of the following:
+-- 4. Generate an order item for each record in the customers_orders table in 
+-- the format of one of the following:
 --     Meat Lovers
 --     Meat Lovers - Exclude Beef
 --     Meat Lovers - Extra Bacon
@@ -127,7 +128,9 @@ LEFT
   JOIN ordered_exclusions oexcl
     ON co.item_id = oexcl.item_id;
 
--- 5. Generate an alphabetically ordered comma separated ingredient list for each pizza order from the customer_orders table and add a 2x in front of any relevant ingredients
+-- 5. Generate an alphabetically ordered comma separated ingredient list for 
+-- each pizza order from the customer_orders table and add a 2x in front of 
+-- any relevant ingredients
 --     For example: "Meat Lovers: 2xBacon, Beef, ... , Salami"
 WITH
 customer_order_indexed AS(
@@ -238,7 +241,8 @@ SELECT
 FROM order_text;  
 
 
--- 6. What is the total quantity of each ingredient used in all delivered pizzas sorted by most frequent first?
+-- 6. What is the total quantity of each ingredient used in all delivered pizzas
+-- sorted by most frequent first?
 WITH
 customer_order_indexed AS(
     SELECT
