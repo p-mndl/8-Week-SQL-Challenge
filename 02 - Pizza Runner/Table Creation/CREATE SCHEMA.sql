@@ -2,8 +2,8 @@ CREATE SCHEMA cs2;
 
 DROP TABLE IF EXISTS cs2.runners
 CREATE TABLE cs2.runners (
-    runner_id INTEGER,
-    registration_date DATE
+  runner_id INTEGER,
+  registration_date DATE
 );
 
 INSERT INTO cs2.runners
@@ -17,12 +17,12 @@ VALUES
 
 DROP TABLE IF EXISTS cs2.customer_orders;
 CREATE TABLE cs2.customer_orders (
-    "order_id" INTEGER,
-    "customer_id" INTEGER,
-    "pizza_id" INTEGER,
-    "exclusions" VARCHAR(4),
-    "extras" VARCHAR(4),
-    "order_time" DATETIME
+  "order_id" INTEGER,
+  "customer_id" INTEGER,
+  "pizza_id" INTEGER,
+  "exclusions" VARCHAR(4),
+  "extras" VARCHAR(4),
+  "order_time" DATETIME
 );
 
 INSERT INTO cs2.customer_orders
@@ -46,12 +46,12 @@ VALUES
 
 DROP TABLE IF EXISTS cs2.runner_orders;
 CREATE TABLE cs2.runner_orders (
-    "order_id" INTEGER,
-    "runner_id" INTEGER,
-    "pickup_time" VARCHAR(19),
-    "distance" VARCHAR(7),
-    "duration" VARCHAR(10),
-    "cancellation" VARCHAR(23)
+  "order_id" INTEGER,
+  "runner_id" INTEGER,
+  "pickup_time" VARCHAR(19),
+  "distance" VARCHAR(7),
+  "duration" VARCHAR(10),
+  "cancellation" VARCHAR(23)
 );
 
 INSERT INTO cs2.runner_orders
@@ -71,8 +71,8 @@ VALUES
 
 DROP TABLE IF EXISTS cs2.pizza_names;
 CREATE TABLE cs2.pizza_names (
-    "pizza_id" INTEGER,
-    "pizza_name" TEXT
+  "pizza_id" INTEGER,
+  "pizza_name" TEXT
 );
 INSERT INTO cs2.pizza_names
 ("pizza_id", "pizza_name")
@@ -83,8 +83,8 @@ VALUES
 
 DROP TABLE IF EXISTS cs2.pizza_recipes;
 CREATE TABLE cs2.pizza_recipes (
-    "pizza_id" INTEGER,
-    "toppings" TEXT
+  "pizza_id" INTEGER,
+  "toppings" TEXT
 );
 INSERT INTO cs2.pizza_recipes
 ("pizza_id", "toppings")
@@ -95,8 +95,8 @@ VALUES
 
 DROP TABLE IF EXISTS cs2.pizza_toppings;
 CREATE TABLE cs2.pizza_toppings (
-    "topping_id" INTEGER,
-    "topping_name" TEXT
+  "topping_id" INTEGER,
+  "topping_name" TEXT
 );
 INSERT INTO cs2.pizza_toppings
 ("topping_id", "topping_name")

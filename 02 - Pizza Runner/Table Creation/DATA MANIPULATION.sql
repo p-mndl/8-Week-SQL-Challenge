@@ -2,15 +2,15 @@
 
 UPDATE cs2.customer_orders
 SET
-    exclusions = NULL
+  exclusions = NULL
 WHERE
-    exclusions = 'null' OR exclusions = '';
+  exclusions = 'null' OR exclusions = '';
 
 UPDATE cs2.customer_orders
 SET
-    extras = NULL
+  extras = NULL
 WHERE
-    extras = 'null' OR extras = '';
+  extras = 'null' OR extras = '';
 
 -- UPDATING RUNNER ORDERS
 
@@ -21,28 +21,28 @@ WHERE pickup_time = 'null';
 
 UPDATE cs2.runner_orders
 SET
-    distance =
-    CASE
-        WHEN distance = 'null' THEN NULL
-        ELSE RTRIM(REPLACE(distance, 'km', ''))
-    END;
+  distance =
+  CASE
+    WHEN distance = 'null' THEN NULL
+    ELSE RTRIM(REPLACE(distance, 'km', ''))
+  END;
 
 ALTER TABLE cs2.runner_orders
 ALTER COLUMN distance FLOAT;
 
 UPDATE cs2.runner_orders
 SET
-    duration =
-    CASE
-        WHEN duration = 'null' THEN NULL
-        ELSE RTRIM(
-                REPLACE(
-                    REPLACE(REPLACE(duration, 'minutes', ''), 'mins', ''),
-                    'minute',
-                    ''
-                )
-            )
-    END;
+  duration =
+  CASE
+    WHEN duration = 'null' THEN NULL
+    ELSE RTRIM(
+        REPLACE(
+          REPLACE(REPLACE(duration, 'minutes', ''), 'mins', ''),
+          'minute',
+          ''
+        )
+      )
+  END;
 
 ALTER TABLE cs2.runner_orders
 ALTER COLUMN distance INT;
@@ -56,8 +56,8 @@ ALTER COLUMN duration INT;
 UPDATE cs2.runner_orders
 SET cancellation = NULL
 WHERE
-    cancellation = 'null'
-    OR cancellation = '';
+  cancellation = 'null'
+  OR cancellation = '';
 
 ALTER TABLE cs2.pizza_names
 ALTER COLUMN pizza_name VARCHAR(10);
