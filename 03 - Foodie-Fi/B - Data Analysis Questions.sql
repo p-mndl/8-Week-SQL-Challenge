@@ -7,22 +7,25 @@ FROM cs3.subscriptions AS subs;
 -- the start of the month as the group by value
 SELECT
   first_of_month = DATEFROMPARTS(YEAR(subs.start_date), MONTH(subs.start_date), 1),
+  cnt_subs = COUNT(*)
+FROM cs3.subscriptions AS subs
+WHERE subs.plan_id = 0
+GROUP BY
+  DATEFROMPARTS(YEAR(subs.start_date), MONTH(subs.start_date), 1)
+ORDER BY
+  DATEFROMPARTS(YEAR(subs.start_date), MONTH(subs.start_date), 1);
+
+
+-- 3. What plan start_date values occur after the year 2020 for our dataset? Show the breakdown 
+-- by count of events for each plan_name
+SELECT
   plans.plan_name,
   cnt_subs = COUNT(*)
 FROM cs3.subscriptions AS subs
 LEFT JOIN cs3.plans
   ON subs.plan_id = plans.plan_id
-GROUP BY
-  DATEFROMPARTS(YEAR(subs.start_date), MONTH(subs.start_date), 1),
-  plans.plan_name
-ORDER BY
-  DATEFROMPARTS(YEAR(subs.start_date), MONTH(subs.start_date), 1),
-  plans.plan_name;
-
-
-
--- 3. What plan start_date values occur after the year 2020 for our dataset? Show the breakdown 
--- by count of events for each plan_name
+WHERE subs.start_date > DATEFROMPARTS(2020, 12, 31)
+GROUP BY plans.plan_name;
 
 
 
